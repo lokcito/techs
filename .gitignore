@@ -16,9 +16,6 @@ vendor/
 go.work
 go.work.sum
 
-# Go mod files
-go.sum
-
 # Output directories
 bin/
 dist/
