@@ -7,9 +7,15 @@ import (
 )
 
 func Load() {
-    err := godotenv.Load()
-    if err != nil {
-        log.Fatal("Error loading .env file")
+    env := os.Getenv("ENV") // Obtén el entorno (por ejemplo, "development" o "production")
+    
+    if env == "development" {
+        err := godotenv.Load(".env")
+        if err != nil {
+            log.Fatal("Error al cargar el archivo .env")
+        }
+    } else {
+        log.Println("Modo producción: cargando variables de entorno del sistema operativo")
     }
 }
 
